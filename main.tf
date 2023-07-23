@@ -17,8 +17,14 @@ resource "aws_instance" "app_server" {
   ami           = "ami-830c94e3"
   instance_type = "t2.micro"
   key_name = "iac-alura"
-
+#   user_data = <<-EOF
+#                 #!/bin/bash
+#                sudo cd /home/ubuntu
+#                sudo echo “<h1>edita com terraform</h1>” > index.html
+#                sudo nohup busybox httpd -f -p 8080 &
+#                 EOF
+# user_data_replace_on_change = true
   tags = {
-    Name = "Minha primeira instancia"
+    Name = "Teste terraform e ansible"
   }
 }
